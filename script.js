@@ -5,7 +5,7 @@ const addItemButton = document.querySelector("#addItemButton");
 console.log(addItemButton + "[FOUND]");
 
 
-// Modify
+// Modify 
 // Make functions that modify the data
 
 function getInput(){
@@ -20,7 +20,7 @@ function getInput(){
   const todoInputValue = todoInput.value;
   console.log(`[DATA ACQUIRED] ${todoInputValue}`);
 
-  // Display the collected data on the webpage:
+  // Display the collected data on the webpage: -------------------------
 
   // Define the name of and what kind of HTML element is to be created
   const outputListItem = document.createElement("li");
