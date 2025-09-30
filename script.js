@@ -1,19 +1,41 @@
-// Hente et element = Hente
-const hamburgerImg = document.querySelector("#hamburgerImg");
+// Get / Hent
+// Get the Submit button
 
-// Alternativ 1:
-// Ha en funksjon = Modifiserer
-// Laget en funksjon som henter navList-elementet og bytter klassenavn for synlig/usynlig
-function hamburgerToggle() {
-  console.log("Hi from hamburgerToggle");
+const addItemButton = document.querySelector("#addItemButton");
+console.log(addItemButton + "[FOUND]");
 
-  const navListElement = document.querySelector(".navList"); // Bevist brukt klasse for kun et element med det klassenavnet
-  console.log(navListElement);
 
-  // Metode 1: Skrive CSS i JS som blir inline-CSS
-  navListElement.style.display = "flex";
-  navListElement.style.flexDirection = "column";
+// Modify
+// Make functions that modify the data
+
+function getInput(){
+  // Log when the function is triggered
+  console.log("[BUTTON CLICKED]")
+
+  // Start defining what happens on trigger:
+
+  // Define where to Get data from
+  const todoInput = document.querySelector("#todoInput");
+  // Define what name to call the data, and where that data is found
+  const todoInputValue = todoInput.value;
+  console.log(`[DATA ACQUIRED] ${todoInputValue}`);
+
+  // Display the collected data on the webpage:
+
+  // Define the name of and what kind of HTML element is to be created
+  const outputListItem = document.createElement("li");
+
+  // Definte where the data ( new HTML element ) will be displayed
+  const todoList = document.querySelector('#todoList');
+
+  // Name the data to be displayed and where it is taken from
+  outputListItem.textContent = todoInputValue;
+
+  // Define where the data is displayed and what data is displayed
+  todoList.appendChild(outputListItem);
+
 }
 
-// Aktiverer en funksjon = Sender
-hamburgerImg.addEventListener("click", hamburgerToggle);
+// Send / Execute functionality
+
+addItemButton.addEventListener("click", getInput);
