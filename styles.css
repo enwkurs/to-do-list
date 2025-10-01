@@ -59,6 +59,10 @@ section {
   width: 50%;
 }
 
+#todoList {
+  list-style-type: none;
+}
+
 /* FOOTER */
 
 /* MEDIA for tablets and under*/

@@ -24,37 +24,33 @@ function getInput(){
 
   // Define the name of and what kind of HTML element is to be created
   const outputListItem = document.createElement("li");
+  outputListItem.className = "listItem";
+
+  const outputCheckbox = document.createElement("input"); // Element type is an input
+  outputCheckbox.type = "checkbox"; // input type is a checkbox
+
+  // Name the data to be displayed and where it is taken from ( GET is from line 20  )
+  // outputListItem.textContent = todoInputValue;
+  const outputListItemText = document.createTextNode(todoInputValue);
+
+
+  // Add the new elements to the HTML - THIS ALL ADDS IT TO THE LI, but still need to add the created LI to the UL
+  outputListItem.appendChild(outputCheckbox);
+  outputListItem.appendChild(outputListItemText);
 
   // Definte where the new HTML element will be displayed
   const todoList = document.querySelector('#todoList');
 
-  // Name the data to be displayed and where it is taken from ( GET is from line 20  )
-  outputListItem.textContent = todoInputValue;
-
-  // Add the new element to the HTML
   todoList.appendChild(outputListItem);
 
-  console.log("[RESET BUTTON CLICKED]");
+  todoInput.value = ''; // replaced todo VALUE with an empty STRING
 
-  // REMOVE content from the input box
-  todoInputValue.
 
 
 
 }
 
-// function resetInput(){
-//   // Clear the input box
-
-
-
-// }
 
 // =========== Send / Execute functionality ===========
 
 addItemButton.addEventListener("click", getInput);
-
-
-// reset input box???
-
-// addItemButton.addEventListener("click", resetInput);
