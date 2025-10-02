@@ -38,18 +38,15 @@
       <!-- Hero / Home -->
       <section id="home" class="hero">
 
-        <form name="XtodoForm">
+        <label for="todoInput">
+          <p>Add List Items</p>
+          <input type="text" name="todoInput" id="todoInput" placeholder="Type list item here" autocorrect="off" />
+        </label>
+        <button id="addItemButton">Add Item</button>
 
-          <label for="XtodoInputBox">
-            <input type="text" name="XtodoInputBox" id="XtodoInputBox"/>
-            <button id="XaddButton">Add Item</button>
-          </label>
-
-          <ul id="XtodoDisplay">
-            <!-- Comes from JS -->
-          </ul>
-
-        </form>
+        <ul id="todoList">
+          <!-- Inserted via Javascript -->
+        </ul>
       </section>
 
       <!-- Tilegg seksjon-->

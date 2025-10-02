@@ -1,54 +1,33 @@
-// ====================== Get / Hent ======================
-// GET the submit button, and bring it into the code
+// Get Submit Button
+const XaddButton = document.querySelector("#XaddButton");
+console.log(`[FOUND] ${XaddButton}`);
 
-const addItemButton = document.querySelector("#addItemButton");
-console.log(addItemButton + "[FOUND]");
+// Define Function
+function XaddListItem(event){
+  event.preventDefault();
+  console.log("[BUTTON CLICKED]");
 
+  // Get the value inside the input box
+  const XtodoInputBoxV = document.querySelector("#XtodoInputBox").value;
 
-// ====================== Modify ======================
-// Make functions that modify the data
+  // Create a new checkbox element
+  const XlistCheck = document.createElement("input")
+  XlistCheck.type = "checkbox";
 
-function getInput(){
-  // Log when the function is triggered
-  console.log("[BUTTON CLICKED]")
+  // Create a new <li> 
+  const XlistItemMake = document.createElement("li");
+  XlistItemMake.className = "XlistItem";
 
-  // =========== Start defining what happens on trigger:
+  // Define the li content as the content of the input box
+  XlistItemMake.textContent = XtodoInputBoxV;
 
-  // Define which element to GET data from
-  const todoInput = document.querySelector("#todoInput");
-  // Define what name to call the data, and that you want the VALUE in that element
-  const todoInputValue = todoInput.value;
-  console.log(`[DATA ACQUIRED] ${todoInputValue}`);
+  // Create a reference point to the <ul> element
+  const XtodoDisplay = document.querySelector("#XtodoDisplay");
 
-  // =========== Display the collected data on the webpage: 
-
-  // Define the name of and what kind of HTML element is to be created
-  const outputListItem = document.createElement("li");
-  outputListItem.className = "listItem";
-
-  const outputCheckbox = document.createElement("input"); // Element type is an input
-  outputCheckbox.type = "checkbox"; // input type is a checkbox
-
-  // Name the data to be displayed and where it is taken from ( GET is from line 20  )
-  // outputListItem.textContent = todoInputValue;
-  const outputListItemText = document.createTextNode(todoInputValue);
-
-
-  // Add the new elements to the HTML - THIS ALL ADDS IT TO THE LI, but still need to add the created LI to the UL
-  outputListItem.appendChild(outputCheckbox);
-  outputListItem.appendChild(outputListItemText);
-
-  // Definte where the new HTML element will be displayed
-  const todoList = document.querySelector('#todoList');
-
-  todoList.appendChild(outputListItem);
-
-  todoInput.value = ''; // replaced todo VALUE with an empty STRING
-
+  // Add the newly created <li> into the <ul>
+  XtodoDisplay.appendChild(XlistItemMake);
 
 }
 
-
-// =========== Send / Execute functionality ===========
-
-addItemButton.addEventListener("click", getInput);
+// Set up trigger that makes the button work
+XaddButton.addEventListener("click", XaddListItem);

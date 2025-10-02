@@ -1,109 +1,79 @@
-# Clearing the input box
-**todoInputValue** = What is currently typed in the input box
+# Structure Planning
 
-**outputListItem** = The name of **todoInputValue** when it is inserted as `<li>` in the HTML
+Making a to-do list with the following features:
+1. Input box for typing in list items
+2. Submit button that adds list items from the input box to a display
+3. Display area that shows added list items with a checkbox next to each item
 
+## HTML Elements
 
-**todoResetPlaceholder** = The name of what is currently in the `placeholder="Text"` of the input box
+HTML elements needed:
+- Form - Wraps the entire form and defines it as a form
+    - Labels - Each input element needs a label defining which part of the form it is
+        - Input Box
+    - Submit Button
+        - `Does Submit Button need a label?`
+            - No because the Submit Button text is its own label. For code reference it has an `id="name"`
+        - `Does Submit Button need a name="">`
+    - Container for displaying List Items
+        - `<li>` - Each new item comes in as `<li>`
+        - `<div>`- Each new item comes in as `<p>`
+        - What makes the most sense semantically?
+        - What makes the most sense for styling? `<li>`
 
+## Javascript Structure
 
-Initial thought - remove **todoInputValue** and replace it with **todoResetPlaceholder**
+Decide what functionality you want and build the script starting with the trigger.
 
-HOWEVER
+**Desired Functionality:** When the Submit Button is clicked, add the content from the input box to a list of items.
+1.  Get the submit button with a `querySelector`
+2. Set a skeleton function up
+3. Define how the function will be triggered with `addEventListener` applied to the Submit Button, listening for `"click"`
 
-Simply removing any text from the input box causes the placeholder to display, so there is no need to replace or otherwise insert it. It is not necessary to grab or define the placeholder in the script.
+**What is needed to function:** What needs to be included in the function in order for things to work as planned?
+- Bring in the input box
+    - Specify that it is the VALUE inside the input box that is needed
+- The VALUE from the input box needs to be added as a new `<li>` element.
+    - A NEW `<input type="checkbox">` element needs to be added inside of that `<li>` BEFORE the input box VALUE.
 
-So then how do you remove **todoInputValue**?
+# ID Names
+Quick identifier for my own naming: X
 
-- <https://www.w3schools.com/jsref/met_element_remove.asp>
-    > The remove() method removes an element (or node) from the document.
+- XtodoForm - Name of the whole form
+- XtodoInputBox - Label and ID for the text input box
+- XtodoInputBoxV - JAVASCRIPT representation of the content inside XtodoInputBox
+- XaddButton - ID for the Submit Button
+- XtodoDisplay - ID for the `<ul>` that will hold each of the list items
+- XaddListItem - The function that happens when the button is pressed
+- XlistItemMake - JAVASCRIPT name for the creation of a new `<li>`
+- XlistItem - The class name assigned to `<li class="XlistItem">`
+- XlistCheck - JAVASCRIPT name for the creation of a new checkbox
+- XlistItemLi - JAVASCRIPT name referring to the `<li>` that gets created by the script
 
-    ```javascript
-    const element = document.getElementById("demo");
-    element.remove();
-    ```
-
-  - ^ remove() is for removing ELEMENTS not STRINGS
-  - A value is a string
-
-
-- <https://chatgpt.com/s/t_68dd3c3133fc8191a2b311de52109110>
-    > If your goal is to clear the input after adding a todo, you should set the value to an empty string:
-
-    ```javascript
-    const todoInput = document.getElementById('todo');
-    todoInput.value = ''; // ✅ clears the input
-    ```
----
-<br>
-
-# Checkboxes
-
-```html
-<input type="checkbox">
-```
-
-Adding an checkbox element makes one appear on the page that can be checked and unchecked.
-
-How to take the checkbox and make it appear next to **outputListItem**?
-
-Can the bullet point of an `<li>` be replaced with a checkbox?
-
-First in CSS remove the default bullet
-`list-style-type: none;`
-
-Can I somehow smash input type=checkbox to be a part of `const todoInputValue = todoInput.value;`?
-
-Maybe not because a checkbox is an element, which would need to be created via `.createElement` ?
-
-~~can it be mashed into `const outputListItem = document.createElement("li");`?~~
-
-use multiple `.createElement`, but then how to make both created elements appear inside of `<ul>`?
-
-
-
-The document.createElement() function only takes the tag name, not attributes.
-
-
-
-## ~~Currently Functioning:~~ Fixed this issue
+# Javascript Syntax
 ```javascript
-  // Define the name of and what kind of HTML element is to be created
-  const outputListItem = document.createElement("li");
-  const outputCheckbox = document.createElement("input"); // Element type is an input
-  outputCheckbox.type = "checkbox"; // input type is a checkbox
-
-  // Definte where the new HTML element will be displayed
-  const todoList = document.querySelector('#todoList');
-
-  // Name the data to be displayed and where it is taken from ( GET is from line 20  )
-  
-  outputListItem.textContent = todoInputValue;
-
-  // Add the new element to the HTML
-  todoList.appendChild(outputListItem);
-  todoList.appendChild(outputCheckbox);
-  todoInput.value = ''; // replaced todo VALUE with an empty STRING
-  ```
-
-  This works in the sense that the checkbox appears, but it is not inside the `<li>` element. It appears before or after it depeneding on its positioning in the code.
-
-  How to get the checkbox inside of a `<li>` that is being created by javascript?
-
-  use js to assign a class to the `<li>` and then select that class with a queryselector?
-
-  ```javascript
-    const outputListItem = document.createElement("li");
-    // and then ?
-    outputListItem.class = "listItem";
+const XaddButton = document.querySelector("#XaddButton");
 ```
+- ***const XaddButton*** : In this script there will be a constant called XaddButton
+- **=** : This constant will be / will contain / is equal to
+- **document** : From the HTML document
+- **.querySelector** : Select an element
+- **("#XaddButton");** : With `id="XaddButton"`
+- Every time this constant (XaddButton) is used in this script, it will point to the element with `id="XaddButton"` in the HTML
 
-then make a new thing like todoCheckbox to tell it where to put the checkbox, and tell that to use listItem?
+```javascript
+XaddButton.addEventListener("click", XaddListItem);
+```
+- **XaddButton** : On the const XaddButton
+- **.addEventListener** : add an event listener
+- **("click",** : The event type is a click
+- **XaddListItem);** : The function `XaddListItem` happens on this event
 
-
-This so far has worked but it keeps putting the checkbox only on the first li with the class listItem, i think because DOM? Maybe i need to use getelement?
-
->script.js:47 Uncaught TypeError: todoCheckbox.appendChild is not a function
-    at HTMLButtonElement.getInput
-
-???
+```javascript
+XlistItem.textContent = XtodoInputBoxV;
+```
+- **XlistItemMake** : When the element `<li>` is made,
+- **.textContent** : the text content inside the element
+- **=** : is
+- **XtodoInputBoxV** : the content defined by the constant `XtodoInputBoxV`
+    - `XtodoinputBox.value` - The value inside of the input box
