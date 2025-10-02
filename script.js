@@ -46,8 +46,6 @@ function getInput(){
   todoInput.value = ''; // replaced todo VALUE with an empty STRING
 
 
-
-
 }
 
 
