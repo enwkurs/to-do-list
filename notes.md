@@ -66,7 +66,7 @@ The document.createElement() function only takes the tag name, not attributes.
 
 
 
-## Currently Functioning:
+## ~~Currently Functioning:~~ Fixed this issue
 ```javascript
   // Define the name of and what kind of HTML element is to be created
   const outputListItem = document.createElement("li");
@@ -107,4 +107,3 @@ This so far has worked but it keeps putting the checkbox only on the first li wi
     at HTMLButtonElement.getInput
 
 ???
-
