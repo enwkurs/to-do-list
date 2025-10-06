@@ -32,6 +32,21 @@ img {
 }
 
 /* MAIN */
+
+#XtodoDisplayUL {
+  display: flex;
+  flex-direction: column;
+}
+
+.XtodoDisplayLI {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+}
+
+
+
+
 section {
   height: 100vh;
   padding: 16px;

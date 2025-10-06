@@ -1,33 +1,39 @@
-// Get Submit Button
+// Get Submit Button -------------------------------------
 const XaddButton = document.querySelector("#XaddButton");
 console.log(`[FOUND] ${XaddButton}`);
 
-// Define Function
+// Define Function ---------------------------------------
 function XaddListItem(event){
   event.preventDefault();
   console.log("[BUTTON CLICKED]");
 
-  // Get the value inside the input box
-  const XtodoInputBoxV = document.querySelector("#XtodoInputBox").value;
+// Get the value inside the input box
+  const XtodoInputVALUE = document.querySelector("#XtodoInputBox").value;
+  console.log(`[DATA FOUND] ${XtodoInputVALUE}`);
 
-  // Create a new checkbox element
-  const XlistCheck = document.createElement("input")
-  XlistCheck.type = "checkbox";
+// Create a new input element and make it a checkbox
+  const XtodoCheckbox = document.createElement("input");
+  XtodoCheckbox.type = "checkbox";
 
-  // Create a new <li> 
-  const XlistItemMake = document.createElement("li");
-  XlistItemMake.className = "XlistItem";
+// Create a new <div> to hold the input text
+  const XtodoTextLI = document.createElement("div");
+  XtodoTextLI.textContent = XtodoInputVALUE;
 
-  // Define the li content as the content of the input box
-  XlistItemMake.textContent = XtodoInputBoxV;
+// Create a new <li> and give it a class name
+  const XtodoDisplayLI = document.createElement("li");
+  XtodoDisplayLI.className = "XtodoDisplayLI";
 
-  // Create a reference point to the <ul> element
-  const XtodoDisplay = document.querySelector("#XtodoDisplay");
+// Define the <li> text content as the content of the input box
+  XtodoDisplayLI.appendChild(XtodoCheckbox);
+  XtodoDisplayLI.appendChild(XtodoTextLI);
 
-  // Add the newly created <li> into the <ul>
-  XtodoDisplay.appendChild(XlistItemMake);
+// Create a reference point to the <ul>
+  const XtodoDisplayUL = document.querySelector("#XtodoDisplayUL");
+
+// Add the newly created <li> into the <ul>
+  XtodoDisplayUL.appendChild(XtodoDisplayLI);
 
 }
 
-// Set up trigger that makes the button work
+// Set up trigger that makes the button work -------------
 XaddButton.addEventListener("click", XaddListItem);
