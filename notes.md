@@ -77,3 +77,37 @@ XlistItem.textContent = XtodoInputBoxV;
 - **=** : is
 - **XtodoInputBoxV** : the content defined by the constant `XtodoInputBoxV`
     - `XtodoinputBox.value` - The value inside of the input box
+
+
+---
+
+# Toggling Checkboxes to Strike out Items
+
+## From Lesson 8 - <https://github.com/JulieKodehode/kodeloftetG15_undervisning8/blob/example/script.js>
+```javascript
+function hamburgerToggle() {
+  console.log("Hi from hamburgerToggle");
+
+  const navListElement = document.querySelector(".navList"); // Bevist brukt klasse for kun et element med det klassenavnet
+  console.log(navListElement);
+
+  // Metode 1: Skrive CSS i JS som blir inline-CSS
+  /*navListElement.style.display = "flex";
+  navListElement.style.flexDirection = "column";*/
+
+  // Metode 2: Endre aktivt klassenavn via external-CSS fil
+  navListElement.classList.add("show");
+  navListElement.classList.remove("hidden");
+}
+```
+
+Using `.classList`, add or remove a class that strikes out the text?
+
+- Find out how to refer to the state of a checkbox "checked" or "unchecked"
+- Set up a class in the CSS file for strikethrough text
+    - `.strike`
+- Set up an `if/else` function
+    - `If` Checkbox is checked, .classList.add("strike")
+    - `Else` Do nothing or remove?
+    Is `else if` needed? 
+    - If checkbox is checked, add .strike - else if checkbox is unchecked .remove .strike, else nothing?

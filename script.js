@@ -14,10 +14,15 @@ function XaddListItem(event){
 // Create a new input element and make it a checkbox
   const XtodoCheckbox = document.createElement("input");
   XtodoCheckbox.type = "checkbox";
+  XtodoCheckbox.id = "XtodoCheckboxElement";
+// Add event listening to detect change in checkbox state
+  XtodoCheckbox.addEventListener("change", XtodoStrike);
 
 // Create a new <div> to hold the input text
   const XtodoTextLI = document.createElement("div");
   XtodoTextLI.textContent = XtodoInputVALUE;
+  XtodoTextLI.className = "XtodoTextLI";
+  XtodoTextLI.addEventListener("change", XtodoStrike);
 
 // Create a new <li> and give it a class name
   const XtodoDisplayLI = document.createElement("li");
@@ -37,3 +42,25 @@ function XaddListItem(event){
 
 // Set up trigger that makes the button work -------------
 XaddButton.addEventListener("click", XaddListItem);
+
+
+// LIST TOGGLE FUNCTION
+// Working with XtodoCheckbox JS , XtodoCheckboxElement element class, .strike CSS
+
+// Create a reference point to a checkbox
+const XtodoCheckboxElement = document.querySelector(".XtodoCheckboxElement");
+const XtodoTextLI = document.querySelector(".XtodoTextLI");
+
+// Define a function to happen when the state of the checkbox changes
+  function XtodoStrike(event) {
+    event.preventDefault();
+
+    if (event.target.checked) {
+      console.log("Checkbox is checked.")
+
+      XtodoTextLI.classList.add("strike")
+    } else {
+      console.log("Checkbox is unchecked")
+    };
+  }
+
