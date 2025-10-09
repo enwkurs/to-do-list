@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
   <head>
-    <title>Hjem</title>
-    <link href="code.png" rel="icon" type="image/png" />
+    <title>To-Do List</title>
+    <link href="/assets/check-circle.png" rel="icon" type="image/png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <!-- External files -->
@@ -12,9 +12,9 @@
 
   <body>
     <header class="header">
-      <img src="code.png" alt="Ikon av HTML klammetegn" />
+      <img src="/assets/check-circle.png" alt="Checkmark Icon" />
 
-      <nav class="headerNav">
+      <!-- <nav class="headerNav">
         <ul class="navList">
           <li>
             <a href="#home">Hjem</a>
@@ -31,22 +31,27 @@
           src="hamburger.png"
           alt="Hamburger meny ikon"
         />
-      </nav>
+      </nav> -->
     </header>
 
     <main class="main">
       <!-- Hero / Home -->
       <section id="home" class="hero">
 
-        <form name="XtodoForm">
+        <form name="XtodoForm" class="XtodoForm">
 
-          <label for="XtodoInputBox">
+          <label for="XtodoInputBox" class="todoLabel">
             <input type="text" name="XtodoInputBox" id="XtodoInputBox"/>
             <button id="XaddButton">Add Item</button>
           </label>
 
           <ul id="XtodoDisplayUL">
             <!-- Comes from JS -->
+            
+            <!-- PLACEHOLDERS FOR STYLING -->
+            <li class="XtodoDisplayLI"><input type="checkbox" id="XtodoCheckboxElement"><div class="XtodoTextDIV">Placeholder Element</div></li>
+            <li class="XtodoDisplayLI"><input type="checkbox" id="XtodoCheckboxElement"><div class="XtodoTextDIV strike">hi</div></li>
+
           </ul>
         </form>
       </section>
@@ -54,7 +59,7 @@
 
 
     <footer class="footer">
-      <h3>Laget av Julie Hauge</h3>
+      <h3>Credits</h3>
     </footer>
   </body>
 </html>

@@ -1,4 +1,6 @@
 /* GLOBAL STYLING */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
 body {
   margin: 0;
 }
@@ -10,6 +12,7 @@ section {
 img {
   max-width: 100%;
 }
+
 
 /* HEADER */
 .header {
@@ -47,12 +50,107 @@ img {
 /* STRIKE LIST ITEM CLASS */
 .strike {
   text-decoration: line-through;
+  color: #B07FF0;
 }
 
+/* FORM STYLING */
+
+.XtodoForm {
+  height: 500px;
+  width: 80vw;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #6D23B7;
+}
+
+.todoLabel {
+          /* border for testing */
+        /*  */border-style: solid;
+        /*  */border-width: 2px;
+        /*  */border-color:green;
+        /*  */
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#XtodoInputBox {
+  height: 2rem;
+  max-width: 75%;
+  min-width: 50%;
+  
+  border: none;
+  border-radius: 1rem;
+  padding: .1rem 1rem;
+}
+
+#XaddButton {
+  /* height: 2rem; */
+
+  border: none;
+  border-radius: 1rem;
+  padding: .1rem 1rem;
+
+  background-color: #8AD1CF;
+}
+
+#XtodoDisplayUL {
+  width: 75vw;
+  padding: 0;
+
+  font-family: "Quicksand", sans-serif;
+  color: #f4eeff;
+}
+
+.XtodoDisplayLI
+
+/* #XtodoCheckboxElement {
+  width: 100px;
+} */
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none; /* For older WebKit browsers */
+  /* Add your custom styles here to create a new visual */
+}
+
+input[type="checkbox"]:not(:checked) {
+  /* Styles for the unchecked checkbox */
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem;
+
+  border: none;
+  border-radius: 1rem;
+  background-image: url("/assets/circle.png");
+  background-size: cover;
+  /* background-color: #c7a1ed; */
+}
+
+input[type="checkbox"]:checked {
+  /* Styles for the unchecked checkbox */
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem;
+
+  border: none;
+  border-radius: 1rem;
+  background-image: url("/assets/check-circle.png");
+  background-size: cover;
+}
+
+/* input[type="checkbox"]:checked {
+  outline: 3px solid green;
+} */
 
 
-
-
+.XtodoTextDIV
 
 
 

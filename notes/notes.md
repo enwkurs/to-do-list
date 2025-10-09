@@ -111,3 +111,27 @@ Using `.classList`, add or remove a class that strikes out the text?
     - `Else` Do nothing or remove?
     Is `else if` needed? 
     - If checkbox is checked, add .strike - else if checkbox is unchecked .remove .strike, else nothing?
+
+
+# Removed from Code for Now
+```javascript
+// LIST TOGGLE FUNCTION
+
+// Create a reference point to the checkbox
+const XtodoCheckboxElement = document.querySelector(".XtodoCheckboxElement");
+// Create a reference point to the <li>
+const XtodoDisplayLIStrike = document.querySelector(".XtodoDisplayLI");
+console.log("XtodoDisplayLI found")
+
+// Define a function to happen when the state of the checkbox changes
+  function XtodoStrike(event) {
+    event.preventDefault();
+
+    if (event.target.checked) {
+      console.log("Checkbox is checked.")
+      XtodoDisplayLIStrike.classList.add("strike")
+    } else {
+      console.log("Checkbox is unchecked")
+    };
+  }
+```
